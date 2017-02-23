@@ -1,0 +1,38 @@
+{
+  "name": "save-me",
+  "version": "0.0.0",
+  "description": "Save anything 🔐",
+  "main": "index.js",
+  "repository": {
+    "url": "git@github.com:bukinoshita/save-me.git",
+    "type": "git"
+  },
+  "author": "Bu Kinoshita <bukinoshita@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "caesar-encrypt": "^0.0.1",
+    "chalk": "^1.1.3",
+    "meow": "^3.7.0",
+    "node-persist": "^2.0.8",
+    "prompt": "^1.0.0",
+    "update-notifier": "^2.1.0",
+    "xo": "^0.17.1"
+  },
+  "scripts": {
+    "test": "xo"
+  },
+  "bin": {
+    "save-me": "index.js"
+  },
+  "keywords": [
+    "save",
+    "cli",
+    "save-me"
+  ],
+  "xo": {
+    "space": true,
+    "semicolon": false,
+    "esnext": true
+  },
+  "devDependencies": {}
+}
