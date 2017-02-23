@@ -13,7 +13,7 @@ const cli = meow(`
 
   Example:
     $ save-me
-    $ save-me <item>
+    $ save-me <item> --copy
     $ save-me -l
     $ save-me -r <item>
 
@@ -23,12 +23,14 @@ const cli = meow(`
 
     -h, --help         Show help options
     -v, --version      Show version
+    -c, --copy         Copy item to clipboard
 `, {
   alias: {
     r: 'remove',
     l: 'list',
     h: 'help',
-    v: 'version'
+    v: 'version',
+    c: 'copy'
   }
 })
 
@@ -38,7 +40,7 @@ const run = () => {
   if (cli.flags.help) {
     cli.showHelp()
   } else if (cli.input[0]) {
-    console.log(storage.get(cli.input[0]))
+    console.log(storage.get(cli.input[0], {copyClipboard: cli.flags.copy}))
     process.exit(1)
   } else if (cli.flags.list) {
     storage.list()

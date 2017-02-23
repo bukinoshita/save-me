@@ -5,6 +5,7 @@
 ```bash
 $ npm install -g save-me
 ```
+_Linux users will probably have to install xsel to use copy to clipboard option: `sudo apt install xsel`_
 
 ## Usage
 ```bash
@@ -16,7 +17,7 @@ $ save-me --help
 
   Example:
     $ save-me
-    $ save-me <item>
+    $ save-me <item> --copy
     $ save-me -l
     $ save-me -r <item>
 
@@ -26,6 +27,7 @@ $ save-me --help
 
     -h, --help         Show help options
     -v, --version      Show version
+    -c, --copy         Copy item to clipboard
 ```
 
 ## How it works
