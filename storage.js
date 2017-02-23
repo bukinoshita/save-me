@@ -4,6 +4,7 @@ const path = require('path')
 const storage = require('node-persist')
 const chalk = require('chalk')
 const {encrypt, decrypt} = require('caesar-encrypt')
+const clipboardy = require('clipboardy')
 
 storage.initSync({
   dir: path.resolve(__dirname, 'save-me')
@@ -18,10 +19,13 @@ exports.save = (key, value) => {
   })
 }
 
-exports.get = key => {
+exports.get = (key, {copyClipboard}) => {
   if (storage.getItemSync(key)) {
     const matcher = storage.valuesWithKeyMatch(key)[0]
 
+    if (copyClipboard) {
+      clipboardy.writeSync(decrypt(matcher, 20))
+    }
     return `${chalk.bold('⇢ ', key)}: ${decrypt(matcher, 20)}`
   }
 
