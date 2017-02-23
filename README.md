@@ -28,6 +28,9 @@ $ save-me --help
     -v, --version      Show version
 ```
 
+## How it works
+<img src="https://cldup.com/hAKpM7LUpJ.gif"/><br/>
+
 ## Related
 [caesar-encrypt](https://github.com/bukinoshita/caesar) — :closed_lock_with_key: One of the simplest forms of encryption
 
