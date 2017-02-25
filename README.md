@@ -1,6 +1,10 @@
 # save-me
 > Save anything 🔐
 
+[![Codeship Status for bukinoshita/save-me](https://app.codeship.com/projects/2dd81180-dd21-0134-15ed-7ad4e00365e1/status?branch=master)](https://app.codeship.com/projects/204513)
+[![GitHub release](https://img.shields.io/github/release/bukinoshita/save-me.svg)](https://www.npmjs.com/package/save-me)
+[![license](https://img.shields.io/github/license/bukinoshita/save-me.svg)](https://raw.githubusercontent.com/bukinoshita/save-me/master/LICENSE)
+
 ## Install
 ```bash
 $ npm install -g save-me
