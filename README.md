@@ -1,6 +1,8 @@
 # save-me
 > Save anything 🔐
 
+[![Build Status](https://travis-ci.org/bukinoshita/save-me.svg?branch=master)](https://travis-ci.org/bukinoshita/save-me)
+
 ## Install
 ```bash
 $ npm install -g save-me
