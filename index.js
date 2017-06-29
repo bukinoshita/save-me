@@ -1,12 +1,13 @@
 #!/usr/bin/env node
 'use strict'
 
-const prompt = require('prompt')
+const inquirer = require('inquirer')
 const meow = require('meow')
 const updateNotifier = require('update-notifier')
 const storage = require('./storage')
 
-const cli = meow(`
+const cli = meow(
+  `
   Usage:
     $ save-me          Save an item
     $ save-me <item>   Search and return an item
@@ -24,39 +25,38 @@ const cli = meow(`
     -h, --help         Show help options
     -v, --version      Show version
     -c, --copy         Copy item to clipboard
-`, {
-  alias: {
-    r: 'remove',
-    l: 'list',
-    h: 'help',
-    v: 'version',
-    c: 'copy'
+`,
+  {
+    alias: {
+      r: 'remove',
+      l: 'list',
+      h: 'help',
+      v: 'version',
+      c: 'copy'
+    }
   }
-})
+)
 
-updateNotifier({pkg: cli.pkg}).notify()
+updateNotifier({ pkg: cli.pkg }).notify()
 
 const run = () => {
-  if (cli.flags.help) {
-    cli.showHelp()
-  } else if (cli.input[0]) {
-    console.log(storage.get(cli.input[0], {copyClipboard: cli.flags.copy}))
-    process.exit(1)
+  if (cli.input[0]) {
+    return storage.get(cli.input[0], { copyClipboard: cli.flags.copy })
   } else if (cli.flags.list) {
-    storage.list()
+    return storage.list()
   } else if (cli.flags.remove) {
-    storage.del(cli.flags.remove)
-  } else {
-    prompt.start()
-    prompt.get(['title', 'description'], (err, result) => {
-      if (err) {
-        console.log(err)
-      } else {
-        const {title, description} = result
-        storage.save(title, description)
-      }
-    })
+    return storage.del(cli.flags.remove)
   }
+
+  inquirer
+    .prompt([
+      { name: 'title', message: 'Title' },
+      { name: 'description', message: 'Description' }
+    ])
+    .then(result => {
+      const { title, description } = result
+      storage.save(title, description)
+    })
 }
 
 run(cli)

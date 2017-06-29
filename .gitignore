@@ -38,3 +38,5 @@ jspm_packages
 
 # Others
 save-me
+
+.DS_Store
