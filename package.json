@@ -1,6 +1,6 @@
 {
   "name": "save-me",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Save anything 🔐",
   "main": "index.js",
   "repository": {
@@ -25,7 +25,11 @@
   "bin": {
     "save-me": "index.js"
   },
-  "keywords": ["save", "cli", "save-me"],
+  "keywords": [
+    "save",
+    "cli",
+    "save-me"
+  ],
   "xo": {
     "space": true,
     "semicolon": false,
