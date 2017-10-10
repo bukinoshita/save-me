@@ -1,6 +1,6 @@
 {
   "name": "save-me",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Save anything 🔐",
   "main": "index.js",
   "repository": "bukinoshita/save-me",
